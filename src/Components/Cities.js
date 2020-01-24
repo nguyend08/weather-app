@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import '../Styles/Cities-Styles.scss'
 import WEATHER_API_KEY from '../weather-key'
+import SelectCity from './SelectCity'
+import AddCity from './AddCity'
 
 class Cities extends Component {
   constructor(props) {
@@ -18,7 +20,8 @@ class Cities extends Component {
   }
 
   addCity(city) {
-    fetch(`https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}`)
+    fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}`)
+    
       .then(results => results.json())
       .then(data => {
         console.log(data)
@@ -44,6 +47,7 @@ class Cities extends Component {
   handleInputSubmit(e) {
     e.preventDefault();
     this.addCity(this.state.currentCity)
+    this.changeTransparent()
   }
 
   render() {
@@ -52,31 +56,16 @@ class Cities extends Component {
         {
         this.state.transparent 
         ? 
-        <div className='transparent-container'>
-          <form 
-            className='transparent-input'
-            onSubmit={this.handleInputSubmit}
-          >
-            <label>
-              Please Insert A City:
-              <input 
-                type='text' 
-                value={this.state.currentCity}
-                onChange={this.handleInputChange}
-              />
-            </label>
-            <input type='submit' value='Submit'/>
-          </form>
-        </div>
+        <SelectCity 
+          handleInputSubmit={this.handleInputSubmit}
+          handleInputChange={this.handleInputChange}
+          currentCity={this.state.currentCity}
+          changeTransparent={this.changeTransparent}
+        />
         :
-        <div 
-          className='add-container'
-          onClick={this.changeTransparent}
-        >
-          <h4 className='add-header'>ADD CITY</h4>
-          <div className='add-button'></div>
-          <img className='add-button-picture' alt='city buildings' src='http://www.freepngclipart.com/download/cartoon/78468-information-city-vinnytsia-cartoon-stryzhavka-download-hd-png.png'></img>
-        </div>
+        <AddCity 
+          changeTransparent={this.changeTransparent}
+        />
         }
         
       </div>
