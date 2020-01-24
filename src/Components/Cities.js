@@ -3,6 +3,7 @@ import '../Styles/Cities-Styles.scss'
 import WEATHER_API_KEY from '../weather-key'
 import SelectCity from './SelectCity'
 import AddCity from './AddCity'
+import DisplayedCities from './DisplayedCities'
 
 class Cities extends Component {
   constructor(props) {
@@ -51,23 +52,28 @@ class Cities extends Component {
   }
 
   render() {
+    const {transparent, currentCity, cities} = this.state;
     return (
       <div className='cities-container'>
         {
-        this.state.transparent 
+        transparent 
         ? 
         <SelectCity 
           handleInputSubmit={this.handleInputSubmit}
           handleInputChange={this.handleInputChange}
-          currentCity={this.state.currentCity}
+          currentCity={currentCity}
           changeTransparent={this.changeTransparent}
         />
         :
-        <AddCity 
-          changeTransparent={this.changeTransparent}
-        />
+        <React.Fragment>
+          <AddCity 
+            changeTransparent={this.changeTransparent}
+          />
+          <DisplayedCities 
+            cities={cities}
+          />
+        </React.Fragment>
         }
-        
       </div>
     )
   }
