@@ -11,6 +11,7 @@ class Cities extends Component {
 
     this.state = {
       cities: [],
+      displayedCities: [],
       transparent: false,
       currentCity: '',
     }
@@ -48,6 +49,9 @@ class Cities extends Component {
   handleInputSubmit(e) {
     e.preventDefault();
     this.addCity(this.state.currentCity)
+    this.setState({
+      currentCity:''
+    })
     this.changeTransparent()
   }
 
@@ -66,12 +70,12 @@ class Cities extends Component {
         />
         :
         <React.Fragment>
-          <AddCity 
-            changeTransparent={this.changeTransparent}
-          />
-          <DisplayedCities 
-            cities={cities}
-          />
+            <AddCity 
+              changeTransparent={this.changeTransparent}
+            />
+            <DisplayedCities 
+              cities={cities}
+            />
         </React.Fragment>
         }
       </div>
