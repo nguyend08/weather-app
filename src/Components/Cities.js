@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-import '../Styles/Cities-Styles.scss'
 import WEATHER_API_KEY from '../weather-key'
 import SelectCity from './SelectCity'
 import AddCity from './AddCity'
 import DisplayedCities from './DisplayedCities'
+import '../Styles/Cities-Styles.scss'
 
 class Cities extends Component {
   constructor(props) {

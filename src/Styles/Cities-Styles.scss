@@ -1,8 +1,15 @@
 .cities-container{
-  display:flex;
+  display: flex;
   flex-direction: column;
+  height: 100%;
+  // border: 2px solid purple;
 
   .add-container {
+    // border: 2px solid purple;
+    height: 60px;
+  }
+
+  .add-button {
     display: flex;
     border-radius: 20px;
     height: 55px;
@@ -10,6 +17,7 @@
     text-align: center;
     box-shadow: 1px 4px 20px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
     margin-right: 10px;
+    float: right;
 
     .add-header {
       font-size: 15px;
@@ -17,24 +25,20 @@
       padding-bottom:8px;
     }
 
-    .add-button {
+    .add-plus {
       background-color: #f6f6f6;
       border-radius: 50%;
       width: 50px;
       height: 50px;
       margin: 0 auto;
-
     }
-    .add-button::before {
+    .add-plus::before {
       content: "+";
       font-size:45px;
       align-items:center;
       justify-content:center;
       font-family:courier;
       color:green;
-    }
-    .add-button-picture {
-      width: 95%;
     }
   }
 
