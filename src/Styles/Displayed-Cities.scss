@@ -1,7 +1,18 @@
+@mixin arrow($color, $width) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: $width;
+  border-color: $color;
+  margin-left: 10px;
+  margin-bottom: 3px;
+}
+
 .displayed-cities-container {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  height: 100%;
 
   .displayed-cities-metrics {
     display: grid;
@@ -40,7 +51,6 @@
     div {
       color: #e50000
     }
-
   }
   .cities-low {
     grid-area: low;
@@ -56,22 +66,13 @@
   text-align: center;
   margin:0px 0px -20px 0px;
 }
+
 .arrow-down {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 10px 7.5px 0 7.5px;
-  border-color: #007bff transparent transparent transparent;
-  margin-left: 10px;
+  @include arrow(#007bff transparent transparent transparent, 10px 7.5px 0 7.5px)
 }
 
 .arrow-up {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 7.5px 10px 7.5px;
-  border-color: transparent transparent #e50000 transparent;
-  margin-left: 10px;
+  @include arrow(transparent transparent #e50000 transparent, 0 7.5px 10px 7.5px)
 }
 
 .no-cities {

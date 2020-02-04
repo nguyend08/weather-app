@@ -1,0 +1,22 @@
+.select-city-container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  border: 1px solid black;
+
+  .select-city-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .select-city-exit {
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+}

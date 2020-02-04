@@ -1,11 +1,8 @@
 .cities-container{
   display: flex;
   flex-direction: column;
-  height: 100%;
-  // border: 2px solid purple;
-
+  min-height: 100vh;
   .add-container {
-    // border: 2px solid purple;
     height: 60px;
   }
 
