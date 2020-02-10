@@ -3,6 +3,7 @@ import WEATHER_API_KEY from '../weather-key'
 import SelectCity from './SelectCity'
 import AddCity from './AddCity'
 import DisplayedCities from './DisplayedCities'
+import NavBar from './NavBar'
 import '../Styles/Cities-Styles.scss'
 
 class Cities extends Component {
@@ -59,6 +60,7 @@ class Cities extends Component {
     const {transparent, currentCity, cities} = this.state;
     return (
       <div className='cities-container'>
+        <NavBar />
         {
         transparent 
         ? 
