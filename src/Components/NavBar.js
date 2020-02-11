@@ -14,12 +14,12 @@ function NavBar(props) {
       </div>
       <div className="nav-logo">
       <div className="nav-mode-container">
-        <span>Light</span>
+        <span className="nav-mode-option">Light</span>
         <label className="switch">
           <input type="checkbox"/>
           <span className="slider round"></span>
         </label>
-        <span>Dark</span>
+        <span className="nav-mode-option">Dark</span>
       </div>
       </div>
     </div>

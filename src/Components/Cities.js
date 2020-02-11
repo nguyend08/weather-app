@@ -28,6 +28,7 @@ class Cities extends Component {
       .then(results => results.json())
       .then(data => {
         console.log(data)
+        if (data.cod === "404") return
         this.setState(prevState =>({
           cities: [...prevState.cities, data]
         }))
