@@ -36,13 +36,11 @@
       width: 50px;
       height: 50px;
       margin: 0 auto;
-      margin-top: 2px;
+      margin-top: 2.5px;
     }
     .add-plus::before {
       content: "+";
       font-size:45px;
-      align-items:center;
-      justify-content:center;
       font-family:courier;
       color:green;
     }
@@ -50,3 +48,17 @@
 
 }
 
+.add-button-dark {
+  background: linear-gradient(to left, #B290FF, #2E1D65);
+  color: white;
+  .add-plus-dark {
+    background-color: #6B7F98 !important;
+  }
+  .add-plus-dark::before {
+    color:#ffdb58 !important;
+  }
+}
+
+.cities-container-dark{
+  background: linear-gradient(to bottom, #B290FF, #2E1D65);
+}

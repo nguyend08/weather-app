@@ -68,7 +68,7 @@ class Cities extends Component {
   render() {
     const {transparent, currentCity, cities, darkMode} = this.state;
     return (
-      <div className='cities-container'>
+      <div className={`cities-container ${darkMode ? "cities-container-dark" : ""}`}>
         <NavBar 
           changeMode={this.changeMode}
           darkMode={darkMode}
@@ -81,14 +81,17 @@ class Cities extends Component {
           handleInputChange={this.handleInputChange}
           currentCity={currentCity}
           changeTransparent={this.changeTransparent}
+          darkMode={darkMode}
         />
         :
         <React.Fragment>
             <AddCity 
               changeTransparent={this.changeTransparent}
+              darkMode={darkMode}
             />
             <DisplayedCities 
               cities={cities}
+              darkMode={darkMode}
             />
         </React.Fragment>
         }

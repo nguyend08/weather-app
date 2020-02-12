@@ -2,6 +2,7 @@ import React from "react";
 import "../Styles/Displayed-Cities.scss";
 
 function DisplayedCities(props) {
+  const {darkMode} = props;
   return (
     <React.Fragment>
       {props.cities.length !== 0 ? (
@@ -13,7 +14,7 @@ function DisplayedCities(props) {
             let weatherIcon = city.weather[0].icon;
             let weatherDiscription = city.weather[0].description;
             return (
-              <div className="displayed-cities-metrics">
+              <div className={`displayed-cities-metrics ${darkMode ? "displayed-cities-metric-dark" : ""}`}>
                 <p className="cities-name">
                   {city.name}
                 </p>
