@@ -2,9 +2,10 @@ import React from "react";
 import "../Styles/Nav-Styles.scss";
 
 function NavBar(props) {
+  const {changeMode, darkMode} = props;
   return (
-    <div className="nav-container">
-      <span className="nav-menu-container">
+    <div className={`nav-container ${darkMode ? "nav-container-dark" : ""}`}>
+      <span className="nav-menu-container nav-menu-container-dark">
         <div></div>
         <div></div>
         <div></div>
@@ -12,15 +13,13 @@ function NavBar(props) {
       <div className="nav-date">
         <p>TODAY</p>
       </div>
-      <div className="nav-logo">
       <div className="nav-mode-container">
-        <span className="nav-mode-option">Light</span>
+        <span className="nav-mode-option">LIGHT</span>
         <label className="switch">
-          <input type="checkbox"/>
+          <input type="checkbox" onClick={changeMode}/>
           <span className="slider round"></span>
         </label>
-        <span className="nav-mode-option">Dark</span>
-      </div>
+        <span className="nav-mode-option">DARK</span>
       </div>
     </div>
   );

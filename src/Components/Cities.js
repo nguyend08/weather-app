@@ -14,12 +14,14 @@ class Cities extends Component {
       cities: [],
       displayedCities: [],
       transparent: false,
+      darkMode: false,
       currentCity: '',
     }
     this.addCity = this.addCity.bind(this);
     this.changeTransparent = this.changeTransparent.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleInputSubmit = this.handleInputSubmit.bind(this);
+    this.changeMode = this.changeMode.bind(this);
   }
 
   addCity(city) {
@@ -42,6 +44,12 @@ class Cities extends Component {
     })
   }
 
+  changeMode() {
+    this.setState({
+      darkMode: !this.state.darkMode
+    })
+  }
+
   handleInputChange(e) {
     this.setState({
       currentCity: e.target.value
@@ -58,10 +66,13 @@ class Cities extends Component {
   }
 
   render() {
-    const {transparent, currentCity, cities} = this.state;
+    const {transparent, currentCity, cities, darkMode} = this.state;
     return (
       <div className='cities-container'>
-        <NavBar />
+        <NavBar 
+          changeMode={this.changeMode}
+          darkMode={darkMode}
+        />
         {
         transparent 
         ? 

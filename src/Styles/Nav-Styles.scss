@@ -1,20 +1,22 @@
 .nav-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 70px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 255, 0.1);
+  box-shadow: 2px 5px 10px rgba(0, 0, 255, 0.1);
   
   .nav-menu-container {
     > div {
-      width: 35px;
-      height: 5px;
+      width: 30px;
+      height: 3px;
       background-color: black;
       margin: 6px 0;
       margin-left: 10px;
     }
   }
   .nav-date {
-    margin: 0 auto;
+    margin-left: 15vh;
+    font-size: 20px;
   }
   .nav-mode-container {
     margin-right: 10px;
@@ -23,6 +25,7 @@
 
     .nav-mode-option {
       margin: 0px 5px;
+      font-size: 12px;
     }
 
     /* The switch - the box around the slider */
@@ -66,11 +69,11 @@
     }
 
     input:checked + .slider {
-      background-color: #2196F3;
+      background-color: #e50000;
     }
 
     input:focus + .slider {
-      box-shadow: 0 0 1px #2196F3;
+      box-shadow: 0 0 1px #e50000;
     }
 
     input:checked + .slider:before {
@@ -86,6 +89,17 @@
 
     .slider.round:before {
       border-radius: 50%;
+    }
+  }
+}
+
+.nav-container-dark {
+  background-color: #190033;
+  color: white;
+
+  .nav-menu-container-dark {
+    > div {
+      background-color: white;
     }
   }
 }
