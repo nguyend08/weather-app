@@ -5,6 +5,8 @@ import AddCity from './AddCity'
 import DisplayedCities from './DisplayedCities'
 import NavBar from './NavBar'
 import '../Styles/Cities-Styles.scss'
+import LeftArrow from './LeftArrow'
+import RightArrow from './RightArrow'
 
 class Cities extends Component {
   constructor(props) {
@@ -31,9 +33,16 @@ class Cities extends Component {
       .then(data => {
         console.log(data)
         if (data.cod === "404") return
-        this.setState(prevState =>({
-          cities: [...prevState.cities, data]
-        }))
+        if (this.state.displayedCities.length <= 2) {
+          this.setState(prevState =>({
+            cities: [...prevState.cities, data],
+            displayedCities: [...prevState.displayedCities, data]
+          }))
+        } else {
+          this.setState(prevState =>({
+            cities: [...prevState.cities, data],
+          }))
+        }
       })
       .catch(error => console.error('Error:', error))
   } 
@@ -65,6 +74,8 @@ class Cities extends Component {
     this.changeTransparent()
   }
 
+
+
   render() {
     const {transparent, currentCity, cities, darkMode} = this.state;
     return (
@@ -89,10 +100,14 @@ class Cities extends Component {
               changeTransparent={this.changeTransparent}
               darkMode={darkMode}
             />
-            <DisplayedCities 
-              cities={cities}
-              darkMode={darkMode}
-            />
+            <div className="display-container">
+              <LeftArrow/>
+              <DisplayedCities 
+                cities={cities}
+                darkMode={darkMode}
+              />
+              <RightArrow/>
+            </div>
         </React.Fragment>
         }
       </div>

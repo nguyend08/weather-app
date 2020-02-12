@@ -1,0 +1,20 @@
+@mixin arrowDirection {
+  width: 0; 
+  height: 0; 
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent; 
+}
+
+.left-arrow, .right-arrow {
+  width: 7.5%;
+}
+
+.left-arrow {
+  border-right: 25px solid green; 
+  @include arrowDirection
+}
+
+.right-arrow {
+  border-left: 25px solid green;
+  @include arrowDirection
+}

@@ -11,9 +11,9 @@
 .displayed-cities-container {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
+  // margin: 0 auto;
   margin-top: 5vh;
-  width: 90%;
+  width: 85%;
   height: 100%;
 
   .displayed-cities-metrics {
@@ -26,7 +26,7 @@
                          ". . description . ."
                          ". low . high .";
     list-style-type: none;
-    border-radius: 10px;
+    border-radius: 30px;
     height: 400px;
     width: 230px;
     margin: 1vh 5vh;
@@ -82,7 +82,9 @@
   height: 350px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center;  
+  width: 85%;
+  margin-top: 5vh;
  }
 
  .displayed-cities-metric-dark {
