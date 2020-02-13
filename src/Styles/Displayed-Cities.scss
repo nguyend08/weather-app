@@ -14,12 +14,13 @@
   // margin: 0 auto;
   justify-content: space-evenly;
   margin-top: 5vh;
-  width: 85%;
+  width: 80%;
+  // border: 1px solid black;
   height: 100%;
 
   .displayed-cities-metrics {
     display: grid;
-    grid-template-columns: 5% 15% 60% 15% 5%;
+    grid-template-columns: 7% 15% 56% 15% 7%;
     grid-template-rows: auto auto auto auto auto;
     grid-template-areas: ". . city-name . ."
                          ". . img . ."
@@ -28,14 +29,14 @@
                          ". low . high .";
     list-style-type: none;
     border-radius: 30px;
-    height: 400px;
-    width: 230px;
+    height: 500px;
+    width: 320px;
     margin: 1vh 5vh;
     box-shadow: 1px 4px 35px rgba(0, 0, 0, 0.12), 0 1px 15px rgba(0, 0, 0, 0.24);
   }
   .cities-name {
     grid-area: city-name;
-    font-size: 20px;
+    font-size: 25px;
     padding-top: 20px;
   }
   .cities-image {
@@ -43,7 +44,8 @@
   }
   .cities-description {
     grid-area: description;
-    font-size: 20px;
+    font-size: 16.5px;
+    text-transform: uppercase;
   }
   .cities-current {
     grid-area: current;
@@ -51,6 +53,7 @@
   }
   .cities-high {
     grid-area: high;
+    font-size: 25px;
 
     div {
       color: #e50000
@@ -58,7 +61,7 @@
   }
   .cities-low {
     grid-area: low;
-
+    font-size: 25px;
     div {
       color: #007bff
     }
@@ -72,11 +75,11 @@
 }
 
 .arrow-down {
-  @include arrow(#007bff transparent transparent transparent, 10px 7.5px 0 7.5px)
+  @include arrow(#007bff transparent transparent transparent, 15px 11px 0 11px)
 }
 
 .arrow-up {
-  @include arrow(transparent transparent #e50000 transparent, 0 7.5px 10px 7.5px)
+  @include arrow(transparent transparent #e50000 transparent, 0 11px 15px 11px)
 }
 
 .no-cities {
