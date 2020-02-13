@@ -5,16 +5,23 @@
   border-bottom: 25px solid transparent; 
 }
 
-.left-arrow, .right-arrow {
+.left-arrow, .right-arrow, .left-arrow-dark, .right-arrow-dark {
   width: 7.5%;
+  @include arrowDirection
 }
 
 .left-arrow {
   border-right: 25px solid green; 
-  @include arrowDirection
 }
 
 .right-arrow {
   border-left: 25px solid green;
-  @include arrowDirection
+}
+
+.left-arrow-dark {
+  border-right: 25px solid #ffdb58; 
+}
+
+.right-arrow-dark {
+  border-left: 25px solid #ffdb58;
 }

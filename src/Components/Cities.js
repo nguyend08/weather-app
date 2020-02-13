@@ -18,12 +18,18 @@ class Cities extends Component {
       transparent: false,
       darkMode: false,
       currentCity: '',
+      left: 0,
+      middle: 1,
+      right: 2
     }
     this.addCity = this.addCity.bind(this);
     this.changeTransparent = this.changeTransparent.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleInputSubmit = this.handleInputSubmit.bind(this);
     this.changeMode = this.changeMode.bind(this);
+    this.changeDisplay = this.changeDisplay.bind(this);
+    this.leftArrow = this.leftArrow.bind(this);
+    this.rightArrow = this.rightArrow.bind(this);
   }
 
   addCity(city) {
@@ -31,7 +37,6 @@ class Cities extends Component {
     
       .then(results => results.json())
       .then(data => {
-        console.log(data)
         if (data.cod === "404") return
         if (this.state.displayedCities.length <= 2) {
           this.setState(prevState =>({
@@ -50,6 +55,36 @@ class Cities extends Component {
   changeTransparent() {
     this.setState({
       transparent: !this.state.transparent
+    })
+  }
+
+  rightArrow() {
+    this.setState({
+      left: this.state.left + 1,
+      middle: this.state.middle + 1,
+      right: this.state.right + 1,
+    },    
+    this.changeDisplay
+    )
+  }
+
+  leftArrow() {
+    this.setState({
+      left: this.state.left - 1,
+      middle: this.state.middle - 1,
+      right: this.state.right - 1,
+    },
+    this.changeDisplay
+    )
+  }
+
+  changeDisplay() {
+    const {left, middle, right, cities} = this.state;
+    let newArr = [
+      cities[left], cities[middle], cities[right]
+    ]
+    this.setState({
+      displayedCities: newArr
     })
   }
 
@@ -77,7 +112,7 @@ class Cities extends Component {
 
 
   render() {
-    const {transparent, currentCity, cities, darkMode} = this.state;
+    const {transparent, currentCity, displayedCities, darkMode} = this.state;
     return (
       <div className={`cities-container ${darkMode ? "cities-container-dark" : ""}`}>
         <NavBar 
@@ -101,12 +136,12 @@ class Cities extends Component {
               darkMode={darkMode}
             />
             <div className="display-container">
-              <LeftArrow/>
+              <LeftArrow darkMode={darkMode} leftArrow={this.leftArrow}/>
               <DisplayedCities 
-                cities={cities}
+                displayedCities={displayedCities}
                 darkMode={darkMode}
               />
-              <RightArrow/>
+              <RightArrow darkMode={darkMode} rightArrow={this.rightArrow}/>
             </div>
         </React.Fragment>
         }

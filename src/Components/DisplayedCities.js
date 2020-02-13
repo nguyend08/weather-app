@@ -2,12 +2,12 @@ import React from "react";
 import "../Styles/Displayed-Cities.scss";
 
 function DisplayedCities(props) {
-  const {darkMode} = props;
+  const {darkMode, displayedCities} = props;
   return (
     <React.Fragment>
-      {props.cities.length !== 0 ? (
+      {displayedCities.length !== 0 ? (
         <div className="displayed-cities-container">
-          {props.cities.map(city => {
+          {displayedCities.map(city => {
             let currentTemp = Math.trunc((9 / 5) * city.main.temp - 459.67);
             let low = Math.trunc((9 / 5) * city.main.temp_min - 459.67);
             let high = Math.trunc((9 / 5) * city.main.temp_max - 459.67);
