@@ -22,11 +22,12 @@
     display: grid;
     grid-template-columns: 7% 15% 56% 15% 7%;
     grid-template-rows: auto auto auto auto auto;
-    grid-template-areas: ". . city-name . ."
-                         ". . img . ."
-                         ". . current . ."
-                         ". . description . ."
-                         ". low . high .";
+    grid-template-areas:
+      ". . city-name . ."
+      ". . img . ."
+      ". . current . ."
+      ". . description . ."
+      ". low . high .";
     list-style-type: none;
     border-radius: 30px;
     height: 500px;
@@ -56,14 +57,14 @@
     font-size: 25px;
 
     div {
-      color: #e50000
+      color: #e50000;
     }
   }
   .cities-low {
     grid-area: low;
     font-size: 25px;
     div {
-      color: #007bff
+      color: #007bff;
     }
   }
 }
@@ -71,27 +72,27 @@
 .displayed-cities-metrics > * {
   width: 100%;
   text-align: center;
-  margin:0px 0px -20px 0px;
+  margin: 0px 0px -20px 0px;
 }
 
 .arrow-down {
-  @include arrow(#007bff transparent transparent transparent, 15px 11px 0 11px)
+  @include arrow(#007bff transparent transparent transparent, 15px 11px 0 11px);
 }
 
 .arrow-up {
-  @include arrow(transparent transparent #e50000 transparent, 0 11px 15px 11px)
+  @include arrow(transparent transparent #e50000 transparent, 0 11px 15px 11px);
 }
 
 .no-cities {
   height: 350px;
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   width: 85%;
   margin-top: 5vh;
- }
+}
 
- .displayed-cities-metric-dark {
-   background: linear-gradient(to top, #711B86, #00057A);
-   color: white;
- }
+.displayed-cities-metric-dark {
+  background: linear-gradient(to top, #711b86, #00057a);
+  color: white;
+}

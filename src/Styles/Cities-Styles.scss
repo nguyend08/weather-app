@@ -1,4 +1,4 @@
-.cities-container{
+.cities-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -20,14 +20,15 @@
     cursor: pointer;
 
     &:active {
-      box-shadow: 10px 3px 100px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.24);
-      bottom:-4px;
+      box-shadow: 10px 3px 100px rgba(0, 0, 0, 0.12),
+        0 1px 5px rgba(0, 0, 0, 0.24);
+      bottom: -4px;
     }
 
     .add-header {
       font-size: 15px;
       padding-left: 10px;
-      padding-bottom:8px;
+      padding-bottom: 8px;
     }
 
     .add-plus {
@@ -40,32 +41,30 @@
     }
     .add-plus::before {
       content: "+";
-      font-size:45px;
-      font-family:courier;
-      color:green;
+      font-size: 45px;
+      font-family: courier;
+      color: green;
     }
   }
 
   .display-container {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: space-evenly;
-
   }
-
 }
 
 .add-button-dark {
-  background: #2E1D65;
+  background: #2e1d65;
   color: white;
   .add-plus-dark {
-    background-color: #6B7F98 !important;
+    background-color: #6b7f98 !important;
   }
   .add-plus-dark::before {
-    color:#ffdb58 !important;
+    color: #ffdb58 !important;
   }
 }
 
-.cities-container-dark{
-  background: linear-gradient(to bottom, #B290FF, #2E1D65);
+.cities-container-dark {
+  background: linear-gradient(to bottom, #b290ff, #2e1d65);
 }

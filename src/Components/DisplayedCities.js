@@ -1,8 +1,8 @@
 import React from "react";
-import "../Styles/Displayed-Cities.scss";
+import "../Styles/DisplayedCities-Styles.scss";
 
 function DisplayedCities(props) {
-  const {darkMode, displayedCities} = props;
+  const { darkMode, displayedCities } = props;
   return (
     <React.Fragment>
       {displayedCities.length !== 0 ? (
@@ -14,18 +14,18 @@ function DisplayedCities(props) {
             let weatherIcon = city.weather[0].icon;
             let weatherDiscription = city.weather[0].description;
             return (
-              <div className={`displayed-cities-metrics ${darkMode ? "displayed-cities-metric-dark" : ""}`}>
-                <p className="cities-name">
-                  {city.name}
-                </p>
+              <div
+                className={`displayed-cities-metrics ${
+                  darkMode ? "displayed-cities-metric-dark" : ""
+                }`}
+              >
+                <p className="cities-name">{city.name}</p>
                 <img
                   src={`http://openweathermap.org/img/wn/${weatherIcon}.png`}
                   alt="weather icon"
                   className="cities-image"
                 ></img>
-                <p className="cities-description">
-                  {weatherDiscription}
-                </p>
+                <p className="cities-description">{weatherDiscription}</p>
                 <p className="cities-current">
                   {currentTemp}
                   <span>&#8457;</span>

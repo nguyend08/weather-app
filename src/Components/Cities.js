@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import "../Styles/Cities-Styles.scss";
 import LeftArrow from "./LeftArrow";
 import RightArrow from "./RightArrow";
+import SideMenu from "./SideMenu";
 
 class Cities extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class Cities extends Component {
       displayedCities: [],
       transparent: false,
       darkMode: false,
+      sideMenu: false,
       currentCity: "",
       left: 0,
       middle: 1,
@@ -30,6 +32,7 @@ class Cities extends Component {
     this.changeDisplay = this.changeDisplay.bind(this);
     this.leftArrow = this.leftArrow.bind(this);
     this.rightArrow = this.rightArrow.bind(this);
+    this.changeSideMenu = this.changeSideMenu.bind(this);
   }
 
   addCity(city) {
@@ -95,6 +98,12 @@ class Cities extends Component {
     });
   }
 
+  changeSideMenu() {
+    this.setState({
+      sideMenu: !this.state.sideMenu
+    });
+  }
+
   handleInputChange(e) {
     this.setState({
       currentCity: e.target.value
@@ -118,49 +127,57 @@ class Cities extends Component {
       darkMode,
       left,
       right,
-      cities
+      cities,
+      sideMenu
     } = this.state;
     return (
-      <div
-        className={`cities-container ${
-          darkMode ? "cities-container-dark" : ""
-        }`}
-      >
-        <NavBar changeMode={this.changeMode} darkMode={darkMode} />
-        {transparent ? (
-          <SelectCity
-            handleInputSubmit={this.handleInputSubmit}
-            handleInputChange={this.handleInputChange}
-            currentCity={currentCity}
-            changeTransparent={this.changeTransparent}
+      <React.Fragment>
+        <SideMenu sideMenu={sideMenu} changeSideMenu={this.changeSideMenu}/>
+        <div
+          className={`cities-container ${
+            darkMode ? "cities-container-dark" : ""
+          }`}
+        >
+          <NavBar
+            changeMode={this.changeMode}
             darkMode={darkMode}
+            changeSideMenu={this.changeSideMenu}
           />
-        ) : (
-          <React.Fragment>
-            <AddCity
+          {transparent ? (
+            <SelectCity
+              handleInputSubmit={this.handleInputSubmit}
+              handleInputChange={this.handleInputChange}
+              currentCity={currentCity}
               changeTransparent={this.changeTransparent}
               darkMode={darkMode}
             />
-            <div className="display-container">
-              <LeftArrow
-                darkMode={darkMode}
-                leftArrow={this.leftArrow}
-                left={left}
-              />
-              <DisplayedCities
-                displayedCities={displayedCities}
+          ) : (
+            <React.Fragment>
+              <AddCity
+                changeTransparent={this.changeTransparent}
                 darkMode={darkMode}
               />
-              <RightArrow
-                darkMode={darkMode}
-                rightArrow={this.rightArrow}
-                right={right}
-                cities={cities}
-              />
-            </div>
-          </React.Fragment>
-        )}
-      </div>
+              <div className="display-container">
+                <LeftArrow
+                  darkMode={darkMode}
+                  leftArrow={this.leftArrow}
+                  left={left}
+                />
+                <DisplayedCities
+                  displayedCities={displayedCities}
+                  darkMode={darkMode}
+                />
+                <RightArrow
+                  darkMode={darkMode}
+                  rightArrow={this.rightArrow}
+                  right={right}
+                  cities={cities}
+                />
+              </div>
+            </React.Fragment>
+          )}
+        </div>
+      </React.Fragment>
     );
   }
 }
