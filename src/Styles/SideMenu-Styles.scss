@@ -24,12 +24,12 @@
 
 .side-menu {
   .side-menu-container {
-    @include sideMenu(0);
+    @include sideMenu(0%);
     .side-menu-header {
-      @include sideMenuHeader(0);
+      @include sideMenuHeader(0%);
     }
     .side-menu-body {
-      @include sideMenuBody(0)
+      @include sideMenuBody(0%)
     }
   }
 }
