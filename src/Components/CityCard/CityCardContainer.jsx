@@ -1,10 +1,10 @@
 import React from 'react';
 
-const CityCardContainer = () => {
+const CityCardContainer = ({ setTargetCity }) => {
   return (
     <div className="city-card-container">
       <div className="back-button-container">
-        <button>Back</button>
+        <button onClick={() => setTargetCity(null)}>Back</button>
       </div>
       <div className="city-card">
         <div className="daily-forecast">
