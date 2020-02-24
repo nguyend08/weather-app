@@ -1,0 +1,56 @@
+.daily-forecast {
+  padding-top: 7%;
+  padding-bottom: 3%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  background-color: lightgoldenrodyellow;
+  h1 {
+    margin: 0;
+    font-size: 5rem;
+  }
+  h2,
+  h3 {
+    margin: 0;
+  }
+  h4,
+  p {
+    margin: 0.5rem 0;
+  }
+}
+
+.daily-forecast--details {
+  width: 40%;
+}
+
+.daily-forecast--details__temperature::after {
+  content: '\00a0 \00b0 ';
+  position: absolute;
+}
+
+.daily-forecast--details--atmosphere {
+  height: 40%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 0.7rem;
+}
+
+.divider {
+  width: 1px;
+  height: 50%;
+  border-radius: 5px;
+  background-color: black;
+}
+
+.city {
+  margin-right: 10%;
+}
+
+.city__name-underline {
+  height: 3px;
+  width: 60%;
+  margin: 0.2rem auto;
+  border-radius: 15px;
+  background-color: black;
+}

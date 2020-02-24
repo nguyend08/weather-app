@@ -1,0 +1,23 @@
+.city-card {
+  height: 75vh;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 255, 0.2);
+  background-color: white;
+  overflow: hidden;
+}
+
+.city-overview {
+  height: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.city-overview .divider {
+  width: 2px;
+  height: 60%;
+  border-radius: 5px;
+  background-color: black;
+}
