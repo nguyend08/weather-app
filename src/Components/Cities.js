@@ -133,7 +133,10 @@ class Cities extends Component {
 
     const weatherDisplayed =
       targetCity !== null ? (
-        <CityCardContainer setTargetCity={this.setTargetCity} />
+        <CityCardContainer
+          setTargetCity={this.setTargetCity}
+          targetCity={targetCity}
+        />
       ) : (
         <React.Fragment>
           <AddCity

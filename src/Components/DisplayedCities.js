@@ -16,7 +16,7 @@ function DisplayedCities({ darkMode, displayedCities, setTargetCity }) {
             className={`displayed-cities-metrics ${
               darkMode ? 'displayed-cities-metric-dark' : ''
             }`}
-            onClick={() => setTargetCity(city.name)}
+            onClick={() => setTargetCity(city.id)}
           >
             <p className="cities-name">{city.name}</p>
             <img
