@@ -2,7 +2,7 @@ import React from 'react';
 
 import DailyForecast from './DailyForecast';
 import TwitterFeed from './TwitterFeed';
-import WeeklyForecast from './WeeklyForecast';
+import IntervalForecast from './IntervalForecast';
 
 import '../../Styles/CityCard/CityCard.scss';
 
@@ -16,7 +16,7 @@ const CityCard = ({ forecast }) => {
       <div className="city-overview">
         <TwitterFeed city={forecast.name} />
         <div className="divider"></div>
-        <WeeklyForecast forecast={forecast.list.slice(1)} />
+        <IntervalForecast forecast={forecast.list.slice(1)} />
       </div>
     </div>
   );

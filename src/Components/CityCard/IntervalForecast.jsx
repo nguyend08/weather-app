@@ -1,8 +1,8 @@
 import React from 'react';
 
-import '../../Styles/CityCard/WeeklyForecast.scss';
+import '../../Styles/CityCard/IntervalForecast.scss';
 
-const WeeklyForecast = ({ forecast }) => {
+const IntervalForecast = ({ forecast }) => {
   return (
     <ul className="weekly-forecast">
       {forecast.map((interval, index) => (
@@ -20,4 +20,4 @@ const WeeklyForecast = ({ forecast }) => {
   );
 };
 
-export default WeeklyForecast;
+export default IntervalForecast;
