@@ -6,14 +6,17 @@ import WeeklyForecast from './WeeklyForecast';
 
 import '../../Styles/CityCard/CityCard.scss';
 
-const CityCard = () => {
+const CityCard = ({ forecast }) => {
   return (
     <div className="city-card">
-      <DailyForecast />
+      <DailyForecast
+        city={forecast.name.toUpperCase()}
+        forecast={forecast.list[0]}
+      />
       <div className="city-overview">
-        <TwitterFeed />
+        <TwitterFeed city={forecast.name} />
         <div className="divider"></div>
-        <WeeklyForecast />
+        <WeeklyForecast forecast={forecast.list.slice(1)} />
       </div>
     </div>
   );

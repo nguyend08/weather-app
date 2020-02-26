@@ -2,11 +2,11 @@ import React from 'react';
 
 import '../../Styles/CityCard/TwitterFeed.scss';
 
-const TwitterFeed = () => {
+const TwitterFeed = ({ city }) => {
   return (
     <div className="twitter-feed">
       <h4>Twitter Feed</h4>
-      <span>{'#Manteca'}</span>
+      <span>{`#${city}`}</span>
       <ul className="tweets">
         <li>
           <p>{'"Don\'t Forget your sunscreen tomorrow!" - author'}</p>
