@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/Displayed-Cities.scss';
+import '../Styles/DisplayedCities-Styles.scss';
 
 function DisplayedCities({ darkMode, displayedCities, setTargetCity }) {
   return displayedCities.length !== 0 ? (
