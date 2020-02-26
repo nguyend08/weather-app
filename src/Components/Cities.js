@@ -1,13 +1,17 @@
-import React, { Component } from "react";
-import WEATHER_API_KEY from "../weather-key";
-import SelectCity from "./SelectCity";
-import AddCity from "./AddCity";
-import DisplayedCities from "./DisplayedCities";
-import NavBar from "./NavBar";
-import "../Styles/Cities-Styles.scss";
-import LeftArrow from "./LeftArrow";
-import RightArrow from "./RightArrow";
+import React, { Component } from 'react';
+import WEATHER_API_KEY from '../weather-key';
+
+import NavBar from './NavBar';
+import SelectCity from './SelectCity';
+import AddCity from './AddCity';
+import DisplayedCities from './DisplayedCities';
+import CityCardContainer from './CityCard/CityCardContainer';
+import LeftArrow from './LeftArrow';
+import RightArrow from './RightArrow';
 import SideMenu from "./SideMenu";
+
+import '../Styles/Cities-Styles.scss';
+
 
 class Cities extends Component {
   constructor(props) {
@@ -22,9 +26,11 @@ class Cities extends Component {
       currentCity: "",
       left: 0,
       middle: 1,
-      right: 2
+      right: 2,
+      targetCity: null
     };
     this.addCity = this.addCity.bind(this);
+    this.setTargetCity = this.setTargetCity.bind(this);
     this.changeTransparent = this.changeTransparent.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleInputSubmit = this.handleInputSubmit.bind(this);
@@ -41,7 +47,7 @@ class Cities extends Component {
     )
       .then(results => results.json())
       .then(data => {
-        if (data.cod === "404") return;
+        if (data.cod === '404') return;
         if (this.state.displayedCities.length <= 2) {
           this.setState(prevState => ({
             cities: [...prevState.cities, data],
@@ -53,7 +59,11 @@ class Cities extends Component {
           }));
         }
       })
-      .catch(error => console.error("Error:", error));
+      .catch(error => console.error('Error:', error));
+  }
+
+  setTargetCity(targetCity) {
+    this.setState({ targetCity: targetCity });
   }
 
   changeTransparent() {
@@ -114,7 +124,7 @@ class Cities extends Component {
     e.preventDefault();
     this.addCity(this.state.currentCity);
     this.setState({
-      currentCity: ""
+      currentCity: ''
     });
     this.changeTransparent();
   }
@@ -128,14 +138,49 @@ class Cities extends Component {
       left,
       right,
       cities,
+      targetCity,
       sideMenu
     } = this.state;
+
+    const weatherDisplayed =
+      targetCity !== null ? (
+        <CityCardContainer
+          setTargetCity={this.setTargetCity}
+          targetCity={targetCity}
+        />
+      ) : (
+        <React.Fragment>
+          <AddCity
+            changeTransparent={this.changeTransparent}
+            darkMode={darkMode}
+          />
+          <div className="display-container">
+            <LeftArrow
+              darkMode={darkMode}
+              leftArrow={this.leftArrow}
+              left={left}
+            />
+            <DisplayedCities
+              darkMode={darkMode}
+              displayedCities={displayedCities}
+              setTargetCity={this.setTargetCity}
+            />
+            <RightArrow
+              darkMode={darkMode}
+              rightArrow={this.rightArrow}
+              right={right}
+              cities={cities}
+            />
+          </div>
+        </React.Fragment>
+      );
+
     return (
       <React.Fragment>
         <SideMenu sideMenu={sideMenu} changeSideMenu={this.changeSideMenu}/>
         <div
           className={`cities-container ${
-            darkMode ? "cities-container-dark" : ""
+            darkMode ? 'cities-container-dark' : ''
           }`}
         >
           <NavBar
@@ -152,29 +197,7 @@ class Cities extends Component {
               darkMode={darkMode}
             />
           ) : (
-            <React.Fragment>
-              <AddCity
-                changeTransparent={this.changeTransparent}
-                darkMode={darkMode}
-              />
-              <div className="display-container">
-                <LeftArrow
-                  darkMode={darkMode}
-                  leftArrow={this.leftArrow}
-                  left={left}
-                />
-                <DisplayedCities
-                  displayedCities={displayedCities}
-                  darkMode={darkMode}
-                />
-                <RightArrow
-                  darkMode={darkMode}
-                  rightArrow={this.rightArrow}
-                  right={right}
-                  cities={cities}
-                />
-              </div>
-            </React.Fragment>
+            weatherDisplayed
           )}
         </div>
       </React.Fragment>
