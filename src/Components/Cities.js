@@ -8,8 +8,10 @@ import DisplayedCities from './DisplayedCities';
 import CityCardContainer from './CityCard/CityCardContainer';
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
+import SideMenu from "./SideMenu";
 
 import '../Styles/Cities-Styles.scss';
+
 
 class Cities extends Component {
   constructor(props) {
@@ -20,7 +22,8 @@ class Cities extends Component {
       displayedCities: [],
       transparent: false,
       darkMode: false,
-      currentCity: '',
+      sideMenu: false,
+      currentCity: "",
       left: 0,
       middle: 1,
       right: 2,
@@ -35,6 +38,7 @@ class Cities extends Component {
     this.changeDisplay = this.changeDisplay.bind(this);
     this.leftArrow = this.leftArrow.bind(this);
     this.rightArrow = this.rightArrow.bind(this);
+    this.changeSideMenu = this.changeSideMenu.bind(this);
   }
 
   addCity(city) {
@@ -104,6 +108,12 @@ class Cities extends Component {
     });
   }
 
+  changeSideMenu() {
+    this.setState({
+      sideMenu: !this.state.sideMenu
+    });
+  }
+
   handleInputChange(e) {
     this.setState({
       currentCity: e.target.value
@@ -128,7 +138,8 @@ class Cities extends Component {
       left,
       right,
       cities,
-      targetCity
+      targetCity,
+      sideMenu
     } = this.state;
 
     const weatherDisplayed =
@@ -165,24 +176,31 @@ class Cities extends Component {
       );
 
     return (
-      <div
-        className={`cities-container ${
-          darkMode ? 'cities-container-dark' : ''
-        }`}
-      >
-        <NavBar changeMode={this.changeMode} darkMode={darkMode} />
-        {transparent ? (
-          <SelectCity
-            handleInputSubmit={this.handleInputSubmit}
-            handleInputChange={this.handleInputChange}
-            currentCity={currentCity}
-            changeTransparent={this.changeTransparent}
+      <React.Fragment>
+        <SideMenu sideMenu={sideMenu} changeSideMenu={this.changeSideMenu}/>
+        <div
+          className={`cities-container ${
+            darkMode ? 'cities-container-dark' : ''
+          }`}
+        >
+          <NavBar
+            changeMode={this.changeMode}
             darkMode={darkMode}
+            changeSideMenu={this.changeSideMenu}
           />
-        ) : (
-          weatherDisplayed
-        )}
-      </div>
+          {transparent ? (
+            <SelectCity
+              handleInputSubmit={this.handleInputSubmit}
+              handleInputChange={this.handleInputChange}
+              currentCity={currentCity}
+              changeTransparent={this.changeTransparent}
+              darkMode={darkMode}
+            />
+          ) : (
+            weatherDisplayed
+          )}
+        </div>
+      </React.Fragment>
     );
   }
 }
