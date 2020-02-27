@@ -25,16 +25,23 @@
   }
 
   .select-city-submit {
-    background: linear-gradient(to right, #00ff9b, #5f84fb);
-    color: white;
-    font-size: 13px;
-    width: 30vh;
-    height: 3vh;
     border-radius: 20px;
+    border: 1px solid #ff4b2b;
+    background: #ff4b2b;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80 ms ease-in;
     -webkit-appearance: none;
     cursor: pointer;
     &:focus {
       outline: none;
+    }
+    &:active {
+      transform: scale(0.95);
     }
   }
 
@@ -46,6 +53,10 @@
     padding-right: 8vh;
     padding-top: 2vh;
     cursor: pointer;
+    
+    &:active {
+      transform: scale(0.95);
+    }
   }
 }
 
